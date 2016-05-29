@@ -8,8 +8,9 @@
  */
 
 #import "AppDelegate.h"
-
+#import "RCCManager.h"
 #import "RCTRootView.h"
+
 
 @implementation AppDelegate
 
@@ -43,6 +44,11 @@
 
 //   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
+  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+  self.window.backgroundColor = [UIColor whiteColor];
+  [[RCCManager sharedInstance] initBridgeWithBundleURL:jsCodeLocation];
+  
+  /*
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"ReactNativeNavigationTest"
                                                initialProperties:nil
@@ -53,6 +59,7 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  */
   return YES;
 }
 
